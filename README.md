@@ -6,6 +6,8 @@
 
 BCRP API · Python · PostgreSQL · SCD Type 2 · dbt · Tested publication
 
+[![CI](https://github.com/NeilBorjasRamos/peru-macro-data-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/NeilBorjasRamos/peru-macro-data-platform/actions/workflows/ci.yml)
+
 [Español](README.es.md) · [Architecture](docs/ARCHITECTURE.md) · [Data contract](docs/DATA_CONTRACT.md) · [Validation](docs/VALIDATION.md) · [Walkthrough](docs/GUIA_COMPLETA.md)
 
 </div>
@@ -31,7 +33,7 @@ and publishes analytics only after an isolated dbt build passes its tests.
 | Mixed frequencies | Preserve daily source periods; monthly last available non-null policy rate | Exact-period SQL and contract tests |
 | Invalid source values | Immutable Bronze, per-run quarantine, per-series 1% gate | One malformed daily observation isolated in real capture |
 | Failed analytical build | Build in a unique schema; atomically swap consumer views after tests | Promotion rollback test |
-| Writer concurrency | PostgreSQL session advisory lock covers the orchestrator | Real PostgreSQL 16 CI test configured; local concurrency proof pending |
+| Writer concurrency | PostgreSQL session advisory lock covers the orchestrator | Passed against PostgreSQL 16.6 in GitHub Actions |
 | Testable ingestion | CLI, typed observation contract and separated persistence | 44 tests passed locally with the limitation below |
 | Safe demonstration | Real and synthetic modes cannot share a database | Mode isolation regression test |
 
@@ -56,10 +58,11 @@ Capture range: **2005-01-01 to 2025-12-31**.
 ![Source-backed Peru macroeconomic observations](docs/assets/peru-macro-2005-2025.png)
 
 The local database validation used **PGlite, a WebAssembly PostgreSQL build**.
-It does not prove production PostgreSQL multi-session behavior. Python validation:
-**44 passed, 1 concurrency test skipped, 87% statement coverage**.
-CI provisions PostgreSQL 16 for that remaining test; remote CI has not run for this
-repository yet. [Full evidence and limits](docs/VALIDATION.md).
+Local Python validation: **44 passed, 1 concurrency test skipped, 87% statement
+coverage**. Remote CI subsequently ran against **PostgreSQL 16.6: all 45 Python tests
+passed**, including independent-session writer locking. The synthetic end-to-end
+demo also passed all 12 dbt tests.
+[Verified CI run](https://github.com/NeilBorjasRamos/peru-macro-data-platform/actions/runs/40123384269). [Full evidence and limits](docs/VALIDATION.md).
 
 ## Source catalog
 

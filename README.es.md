@@ -17,7 +17,9 @@ Repetir exactamente la captura creó cero versiones nuevas en el historial.
 Se ejecutaron cuatro modelos y 12 pruebas de dbt. Las pruebas Python terminaron
 con 44 aprobadas, una omitida y 87% de cobertura. La validación SQL local usó
 PGlite/WASM: no sustituye comprobar la concurrencia de PostgreSQL 16, que está
-configurada en CI. [Detalle y límites](docs/VALIDATION.md).
+configurada en CI. La ejecución remota posterior con PostgreSQL 16.6 aprobó
+las 45 pruebas Python, incluida concurrencia, y la demo con 12 pruebas dbt.
+[Ver CI exitoso](https://github.com/NeilBorjasRamos/peru-macro-data-platform/actions/runs/40123384269). [Detalle y límites](docs/VALIDATION.md).
 
 ## Demo con Docker
 ```bash

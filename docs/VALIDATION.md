@@ -29,6 +29,15 @@ PGlite 0.5.11 (PostgreSQL 18.6 compiled to WASM) over the PostgreSQL wire protoc
 That validates the exercised SQL, not full PostgreSQL 16 compatibility, multi-session
 locking, production concurrency or performance.
 
-The included CI provisions real PostgreSQL 16.6 and runs the lock test. That CI has
-not run yet for this new project. Docker/Compose, Windows/macOS and Python 3.11/3.13
+## Subsequent PostgreSQL 16 CI validation
+[GitHub Actions run 40123384269](https://github.com/NeilBorjasRamos/peru-macro-data-platform/actions/runs/40123384269)
+completed successfully on the published implementation commit df1e0268b15d4cb493518a6aa2aca09249bfaa6c.
+The job used PostgreSQL 16.6 and Python 3.12:
+- All 45 Python tests passed with no skips.
+- The independent-session advisory-lock test passed.
+- The synthetic full pipeline built four dbt models and passed all twelve data tests.
+- Ruff checks, dependency installation and package build passed.
+
+This validates the tested multi-session lock behavior on PostgreSQL 16.6; it is
+not a production-load, high-availability or security benchmark. Docker/Compose, Windows/macOS and Python 3.11/3.13
 have not been executed here. No throughput benchmark or cloud deployment is claimed.
