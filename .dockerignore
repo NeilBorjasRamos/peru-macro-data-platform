@@ -1,0 +1,11 @@
+.git
+.venv
+.env
+data
+data_*
+dbt/target
+dbt/logs
+.pytest_cache
+.ruff_cache
+.coverage*
+coverage.xml

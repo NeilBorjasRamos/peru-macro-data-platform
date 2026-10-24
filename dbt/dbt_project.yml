@@ -1,0 +1,14 @@
+name: peru_macro
+version: "0.1.0"
+config-version: 2
+profile: peru_macro
+model-paths: [models]
+test-paths: [tests]
+macro-paths: [macros]
+clean-targets: [target, dbt_packages]
+models:
+  peru_macro:
+    +materialized: table
+    +persist_docs:
+      relation: true
+      columns: true

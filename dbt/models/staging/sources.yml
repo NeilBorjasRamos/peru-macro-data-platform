@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: macro_raw
+    schema: macro_raw
+    tables:
+      - name: observation_history
+        description: System-observed revisions; not official historical release vintages.
+      - name: series
+        description: Version-controlled series catalog, enriched with source names in Bronze.

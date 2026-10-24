@@ -1,0 +1,92 @@
+{
+  "dataset": "BCRP API, eight verified series",
+  "start": "2005-01-01",
+  "end": "2025-12-31",
+  "first_load": {
+    "run_id": "29ebf18d-945d-4a29-8d55-61c666b78361",
+    "status": "published",
+    "observations": 7242,
+    "missing_values": 106,
+    "new_versions": 7241,
+    "unchanged": 0,
+    "rejected": 1,
+    "build_schema": "build_29ebf18d945d4a298d5561c666b78361"
+  },
+  "replay": {
+    "run_id": "a51d9dd0-82aa-497c-883c-ef042aa0ad4d",
+    "status": "published",
+    "observations": 7242,
+    "missing_values": 106,
+    "new_versions": 0,
+    "unchanged": 7241,
+    "rejected": 1,
+    "build_schema": "build_a51d9dd082aa497c883cef042aa0ad4d"
+  },
+  "monthly_panel_rows": 252,
+  "series": [
+    {
+      "code": "PD12301MD",
+      "frequency": "D",
+      "unit": "percent",
+      "rows": 5477,
+      "missing": 106
+    },
+    {
+      "code": "PN01207PM",
+      "frequency": "M",
+      "unit": "PEN per USD",
+      "rows": 252,
+      "missing": 0
+    },
+    {
+      "code": "PN01271PM",
+      "frequency": "M",
+      "unit": "percent month-on-month",
+      "rows": 252,
+      "missing": 0
+    },
+    {
+      "code": "PN01273PM",
+      "frequency": "M",
+      "unit": "percent year-on-year",
+      "rows": 252,
+      "missing": 0
+    },
+    {
+      "code": "PN01652XM",
+      "frequency": "M",
+      "unit": "US cents per pound",
+      "rows": 252,
+      "missing": 0
+    },
+    {
+      "code": "PN01654XM",
+      "frequency": "M",
+      "unit": "USD per troy ounce",
+      "rows": 252,
+      "missing": 0
+    },
+    {
+      "code": "PN01770AM",
+      "frequency": "M",
+      "unit": "index 2007=100",
+      "rows": 252,
+      "missing": 0
+    },
+    {
+      "code": "PN38705PM",
+      "frequency": "M",
+      "unit": "index Dec2021=100",
+      "rows": 252,
+      "missing": 0
+    }
+  ],
+  "engine": "PostgreSQL 18.6 (PGlite 0.5.11) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit",
+  "latest_month_sample": [
+    "2025-12-01",
+    "1.50879973918667",
+    "3.36686315789474",
+    "4.25"
+  ],
+  "validation_engine_note": "PGlite/WASM; full PostgreSQL 16 multi-session concurrency is configured for CI, not proven by this local run."
+}

@@ -1,0 +1,10 @@
+[
+  {"code":"PN38705PM","name":"Lima CPI index","frequency":"M","unit":"index Dec2021=100","aggregation":"value"},
+  {"code":"PN01271PM","name":"Lima CPI monthly change","frequency":"M","unit":"percent month-on-month","aggregation":"value"},
+  {"code":"PN01273PM","name":"Lima CPI annual change","frequency":"M","unit":"percent year-on-year","aggregation":"value"},
+  {"code":"PN01207PM","name":"Interbank exchange rate average","frequency":"M","unit":"PEN per USD","aggregation":"value"},
+  {"code":"PN01770AM","name":"GDP index","frequency":"M","unit":"index 2007=100","aggregation":"value"},
+  {"code":"PN01652XM","name":"Copper LME","frequency":"M","unit":"US cents per pound","aggregation":"value"},
+  {"code":"PN01654XM","name":"Gold LME","frequency":"M","unit":"USD per troy ounce","aggregation":"value"},
+  {"code":"PD12301MD","name":"Monetary policy reference rate","frequency":"D","unit":"percent","aggregation":"last_non_null_in_month"}
+]

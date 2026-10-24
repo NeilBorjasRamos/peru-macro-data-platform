@@ -1,0 +1,30 @@
+version: 2
+models:
+  - name: stg_current_observations
+    description: Materialized current-state snapshot in an isolated build schema.
+    columns:
+      - name: observation_id
+        tests: [not_null, unique]
+      - name: frequency
+        tests:
+          - accepted_values:
+              values: [M, D]
+      - name: code
+        tests: [not_null]
+  - name: fct_monthly_observations
+    description: Monthly source values and last available non-null daily policy rate within each month.
+    columns:
+      - name: monthly_id
+        tests: [not_null, unique]
+      - name: month
+        tests: [not_null]
+  - name: mart_macro_dashboard
+    description: Descriptive macroeconomic panel; no investment or credit-risk model.
+    columns:
+      - name: month
+        tests: [not_null, unique]
+  - name: mart_revisions
+    description: Revisions observed since this pipeline began; not original BCRP release history.
+    columns:
+      - name: versions_observed
+        tests: [not_null]
